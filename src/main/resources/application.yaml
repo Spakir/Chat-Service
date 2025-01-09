@@ -1,0 +1,31 @@
+spring:
+  application:
+  name: ChatService
+
+  docker:
+    compose:
+      enabled: false
+
+  liquibase:
+    enabled: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring-chat-users_db
+    driver-class-name: org.postgresql.Driver
+    username: user
+    password: 123
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/oauth2/jwks
+
+server:
+  port: 8081
