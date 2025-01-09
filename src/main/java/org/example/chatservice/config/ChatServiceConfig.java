@@ -50,7 +50,6 @@ public class ChatServiceConfig {
 
         http.csrf(Customizer.withDefaults());
 
-        http.addFilterAfter(new AuthenticationLoggingFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

@@ -26,7 +26,7 @@ public class WebSocketListener {
 
         log.info("Получено сообщение: {}", messageDto);
 
-        messageService.saveMessage(messageDto);
+        messageService.saveMessage(messageDto,authentication);
 
         ResponseMessage responseMessage = new ResponseMessage(messageDto.getContent(),authentication.getName());
         messagingTemplate.convertAndSend( "/client/send", responseMessage);

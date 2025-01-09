@@ -8,6 +8,7 @@ import org.example.chatservice.mapper.MessageMapper;
 import org.example.chatservice.model.Message;
 import org.example.chatservice.model.User;
 import org.example.chatservice.repository.MessageRepository;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +26,9 @@ public class MessageService {
     private final MessageMapper messageMapper;
 
     @Transactional
-    public MessageDto saveMessage(MessageDto messageDto){
+    public MessageDto saveMessage(MessageDto messageDto, Authentication authentication){
+
+        log.info("{}",authentication.getName());
 
         Message message = new Message();
         message.setUser(entityManager.getReference(User.class,messageDto.getUserId()));
