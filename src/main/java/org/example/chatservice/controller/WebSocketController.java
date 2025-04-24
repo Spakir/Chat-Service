@@ -23,7 +23,6 @@ public class WebSocketController {
     private final SimpMessagingTemplate messagingTemplate;
 
     @MessageMapping("/send")
-    @Transactional
     public void sendMessage(@Payload MessageDto messageDto,
                             @AuthenticationPrincipal Authentication authentication) {
 
